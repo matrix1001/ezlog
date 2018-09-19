@@ -8,17 +8,17 @@ import threading
 import time
 
 _msgtype_prefixes = {
-    'status'       : '\033[95mx\033[0m',
-    'success'      : '\033[92m+\033[0m',
-    'failure'      : '\033[91m-\033[0m',
-    'debug'        : '\033[91mDEBUG\033[0m',
-    'info'         : '\033[94m*\033[0m',
-    'warning'      : '\033[93m!\033[0m',
-    'error'        : '\033[91mERROR\033[0m',
-    'exception'    : '\033[91mERROR\033[0m',
-    'critical'     : '\033[91mCRITICAL\033[0m',
-    'info_once'    : '\033[94m*\033[0m',
-    'warning_once' : '\033[93m!\033[0m',
+    'status'       : u'\033[95mx\033[0m',
+    'success'      : u'\033[92m+\033[0m',
+    'failure'      : u'\033[91m-\033[0m',
+    'debug'        : u'\033[91mDEBUG\033[0m',
+    'info'         : u'\033[94m*\033[0m',
+    'warning'      : u'\033[93m!\033[0m',
+    'error'        : u'\033[91mERROR\033[0m',
+    'exception'    : u'\033[91mERROR\033[0m',
+    'critical'     : u'\033[91mCRITICAL\033[0m',
+    'info_once'    : u'\033[94m*\033[0m',
+    'warning_once' : u'\033[93m!\033[0m',
     }
 class Logger(object):
     _one_time_infos    = set()
@@ -144,13 +144,13 @@ class Formatter(logging.Formatter):
             return msg
 
         if msgtype in _msgtype_prefixes:
-            prefix = '[%s] ' % _msgtype_prefixes[msgtype]
+            prefix = u'[%s] ' % _msgtype_prefixes[msgtype]
         elif msgtype == 'indented':
             prefix = self.indent
         elif msgtype == 'animated':
-            prefix = ''
+            prefix = u''
         else:
-            prefix = '[?] '
+            prefix = u'[?] '
 
         msg = prefix + msg
         msg = self.nlindent.join(msg.splitlines())
