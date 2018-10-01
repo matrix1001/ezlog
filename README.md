@@ -2,10 +2,6 @@
 Converted from `pwntools`, removed `progress`.
 
 For those who appreciate `log` in `pwntools`, but need a single file to load it.
-# install
-```sh
-python setup.py install
-```
 # usage
 ```python
 import ezlog
